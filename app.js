@@ -20,6 +20,7 @@ const superheroSchema = new mongoose.Schema(
     poderes: [String],
     aliados: [String],
     enemigos: [String],
+    creador: { type: String, required: true },
     createdAt: { type: Date, default: Date.now },
   },
   { collection: "Grupo-10" }
@@ -37,6 +38,7 @@ async function insertSuperHero() {
     poderes: ["Trepar paredes", "Sentido Aracnido", "Super Fuerza", "Agilidad"],
     aliados: ["Ironman"],
     enemigos: ["Duende Verder"],
+    creador: "Matias D. Sanchez",
   });
   await hero.save();
   console.log("Superheroe insertado", hero);
@@ -57,11 +59,9 @@ async function findSuperHero() {
   console.log("Superhéroes encontrados", heroes);
 }
 
-async function main() {
-  await insertSuperHero();
-  await updateSuperHero("Spiderman");
-  await deleteSuperHero("Spiderman");
-  await findSuperHero();
-}
-
-main();
+module.exports = {
+  insertSuperHero,
+  updateSuperHero,
+  deleteSuperHero,
+  findSuperHero,
+};

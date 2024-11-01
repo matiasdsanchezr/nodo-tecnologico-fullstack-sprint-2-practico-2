@@ -4,7 +4,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./app.js"
+    "start": "node ./app.js",
+    "insert": "node -e 'require(\"./app.js\").insertSuperHero()'",
+    "update": "node -e 'require(\"./app.js\").updateSuperHero(\"Spiderman\")'",
+    "delete": "node -e 'require(\"./app.js\").deleteSuperHero(\"Spiderman\")'",
+    "find": "node -e 'require(\"./app.js\").findSuperHeroSuperHero()'"
   },
   "author": "",
   "license": "ISC",
